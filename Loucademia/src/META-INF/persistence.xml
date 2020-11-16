@@ -4,7 +4,7 @@
 		<jta-data-source>jdbc/LoucaDS</jta-data-source>
 		<class>br.com.softblue.loucademia.domain.aluno.Estado</class>
 		<properties>
-			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+			<property name="javax.persistence.schema-generation.database.action" value="none"/>
 		</properties>
 	</persistence-unit>
 </persistence>

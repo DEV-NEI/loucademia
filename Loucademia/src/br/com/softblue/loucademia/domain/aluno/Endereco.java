@@ -1,17 +1,33 @@
 package br.com.softblue.loucademia.domain.aluno;
 
-public class Endereco {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+
+@Embeddable
+public class Endereco implements Serializable {
 	
+	@Column(name = "RUA", nullable = false, length = 128)
 	private String rua;
 	
+	@Column(name = "NUMERO", nullable = true, length = 6)
 	private Integer numero;
 	
+	@Column(name = "COMPLEMENTO", nullable = false, length = 32)
 	private Integer complemento;
 	
+	@Column(name = "CIDADE", nullable = false, length = 6)
 	private String cidade;
 	
+	@ManyToOne
+	@JoinColumn(name = "ESTADO_ID", nullable = false)
 	private Estado estado = new Estado();
 	
+	@Column(name = "CEP", nullable = false, length = 8)
 	private Integer cep;
 	
 
