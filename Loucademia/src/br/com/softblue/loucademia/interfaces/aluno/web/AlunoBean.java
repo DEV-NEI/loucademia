@@ -7,6 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 import br.com.softblue.loucademia.application.service.AlunoService;
+import br.com.softblue.loucademia.application.util.StringUtils;
 import br.com.softblue.loucademia.domain.aluno.Aluno;
 
 @Named
@@ -18,9 +19,21 @@ public class AlunoBean implements Serializable {
 	
 	private Aluno aluno = new Aluno();
 	
+	private String matricula;
+	
+	private String titulo = "Novo aluno";
+	
+	public void carregar() {
+		if (!StringUtils.isEmpty(matricula)) {
+			aluno = alunoService.findByMatricula(matricula);
+			titulo = "Alterar aluno";
+			
+		}
+	}
+	
 	public String gravar() {
-		alunoService.createOrUpdate(aluno);
-		return null;
+	alunoService.createOrUpdate(aluno);
+	return null;
 	}
 	
 	public Aluno getAluno() {
@@ -31,5 +44,16 @@ public class AlunoBean implements Serializable {
 		this.aluno =  aluno;
 	}
 	
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
 
 }
