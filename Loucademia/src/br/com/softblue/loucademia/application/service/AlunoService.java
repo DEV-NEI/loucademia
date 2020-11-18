@@ -1,7 +1,11 @@
 package br.com.softblue.loucademia.application.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+
 
 import br.com.softblue.loucademia.application.util.StringUtils;
 import br.com.softblue.loucademia.application.util.Validation;
@@ -32,6 +36,10 @@ public class AlunoService {
 		
 	}
 	
+	public void delete(String matricula) {
+		alunoRepository.delete(matricula);
+	}
+	
 	
 	private void update(Aluno aluno) {
 		Validation.assertNotEmpty(aluno);
@@ -41,5 +49,13 @@ public class AlunoService {
 	}
 	public Aluno findByMatricula(String matricula) {
 		return alunoRepository.findByMatricula(matricula);
+	}
+	
+	public List<Aluno> listAlunos(String matricula, String nome, Integer rg, Integer telefone) {
+		Aluno aluno = alunoRepository.findByMatricula(matricula);
+		List<Aluno> alunos = new ArrayList<Aluno>();
+		alunos.add(aluno);
+		return alunos;
+		
 	}
 }

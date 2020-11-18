@@ -26,53 +26,55 @@
 	
 	<form jsf:id="form">
 		<fieldset>
-			<legend>Parâmetros da Pesquisa</legend>
-			
-			<label for="id">ID</label><br />
-			<input type="text"  name="id" id="id" /><br />
+			<legend>Parâmetros da Pesquisa</legend>			
+			<label for="id">Matricula</label><br />
+			<input type="text"  jsf:value="#{pesquisaAlunoBean.matricula}" id="id" /><br />
 			
 			
 			<label for="nome">Nome:</label><br />
-			<input type="text"  name="nome" id="nome" /><br />
+			<input type="text" jsf:value="#{pesquisaAlunoBean.nome}"  id="nome" /><br />
 			
 			<label for="rg">RG:</label><br />
-			<input type="text"  name="rg" id="rg" /><br />
+			<input type="text" jsf:value="#{pesquisaAlunoBean.rg}"  id="rg" /><br />
 			
 			
 			<label for="telefoneDDD">Telefone</label><br />
-			<input type="tel" name="telefoneDDD" id="telefoneDDD" />			
-			<input type="tel" name="telefoneNumero" id="telefoneNumero" /><br />	
+			<input type="tel" jsf:value="#{pesquisaAlunoBean.telefone}" id="telefoneNumero" /><br />	
 		</fieldset>
 		
 		<br />
 		
-		<input type="submit" value="Pesquisar" />
+		<input type="submit" value="Pesquisar" jsf:action="#{pesquisaAlunoBean.pesquisar}" />
 	
-	</form>
 	
-	<table>
-		<tr>
-			<th>ID</th>
-			<th>Nome</th>
-			<th>RG</th>
-			<th>E-mail</th>
-			<th>Situação</th>
-			<th>Ações</th>			
-		</tr>
+		<h:panelGroup rendered="${not empty pesquisaAlunoBean.alunos}">
 		
-		<tr>
-			<td>1</td>
-			<td>André</td>
-			<td>111.111.111</td>
-			<td>andre@loucademia.com.br</td>
-			<td>ativo</td>
-			<td>
-			<input type="button" value="Editar" />
-			<input type="button" value="Excluir">
-			</input>
-			</td>	
-		</tr>
-	</table>
+			<table>
+				<tr>
+					<th>Matrícula</th>
+					<th>Nome</th>
+					<th>RG</th>
+					<th>E-mail</th>
+					<th>Situação</th>
+					<th>Ações</th>			
+				</tr>
+				<ui:repeat var="a" value="#{pesquisaAlunoBean.alunos}">
+				<tr>
+					<td>#{a.matricula}</td>
+					<td>#{a.nome}</td>
+					<td>#{a.rg}</td>
+					<td>#{a.email}</td>
+					<td>#{a.situacao}</td>
+					<td>
+					<input type="button" value="Editar" jsf:outcome="dadosAluno?matricula=#{a.matricula}" />&#160;
+					<input type="submit" value="Excluir" onclick="return confirm('Deseja excluir o aluno #{a.matricula}?');" jsf:action="#{pesquisaAlunoBean.excluir(a.matricula)}">
+					</input>
+					</td>	
+				</tr>
+				</ui:repeat>
+			</table>
+		</h:panelGroup>
+		</form>
 	</ui:define>
 		</ui:composition>
 	</html>
