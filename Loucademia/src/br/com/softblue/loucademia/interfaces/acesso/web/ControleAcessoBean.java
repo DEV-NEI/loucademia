@@ -18,19 +18,19 @@ import br.com.softblue.loucademia.domain.acesso.TipoAcesso;
 public class ControleAcessoBean implements Serializable {
 	
 	@EJB
-	private AcessoService  acessoService;
+	private AcessoService acessoService;
 	
 	@Inject
 	private FacesContext facesContext;
 		
 	private String matricula;
-	private String rg;
+	private Integer rg;
 	
 	public String registrarAcesso() {
 		
 		TipoAcesso tipoAcesso;
 		try {
-		acessoService.registrarAcesso(matricula, rg);
+		tipoAcesso = acessoService.registrarAcesso(matricula, rg);
 		}catch (ValidationException e ) {
 			facesContext.addMessage(null, new FacesMessage(e.getMessage()));
 			return null;
@@ -57,11 +57,11 @@ public class ControleAcessoBean implements Serializable {
 		this.matricula = matricula;
 	}
 
-	public String getRg() {
+	public Integer getRg() {
 		return rg;
 	}
 
-	public void setRg(String rg) {
+	public void setRg(Integer rg) {
 		this.rg = rg;
 	}
 

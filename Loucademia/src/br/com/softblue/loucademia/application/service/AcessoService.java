@@ -5,6 +5,7 @@ import javax.ejb.Stateless;
 
 import br.com.softblue.loucademia.application.util.StringUtils;
 import br.com.softblue.loucademia.application.util.ValidationException;
+import br.com.softblue.loucademia.domain.acesso.Acesso;
 import br.com.softblue.loucademia.domain.acesso.AcessoRepository;
 import br.com.softblue.loucademia.domain.acesso.TipoAcesso;
 import br.com.softblue.loucademia.domain.aluno.Aluno;
@@ -35,11 +36,20 @@ public class AcessoService {
 			throw new ValidationException("O aluno não foi encontrado");
 		}
 		
-		return null;
+		Acesso ultimoAcesso = acessoRepository.findUltimoAcesso(aluno);
+		TipoAcesso tipoAcesso;
 		
+		if (ultimoAcesso == null || ultimoAcesso.isEntradaSaidaPreenchidas()) {
+			ultimoAcesso = new Acesso();
+			ultimoAcesso.setAluno(aluno);
+			tipoAcesso = ultimoAcesso.registrarAcesso();
+			acessoRepository.store(ultimoAcesso);
+		
+		}else {
+			tipoAcesso = ultimoAcesso.registrarAcesso();
+		}
+		
+		return tipoAcesso;	
 		
 	}
-	
-
-
 }
