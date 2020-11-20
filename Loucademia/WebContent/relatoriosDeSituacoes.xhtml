@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf" lang="pt-br">
+
+<ui:composition template="Layout.xhtml">
+	<ui:define name="conteudo">
+
+		<h1>Relatório de Situações</h1>
+		
+		<h:panelGroup rendered="#{!facesContext.messageList.isEmpty()}">
+			<div id="infoMessage">
+				<h:messages />
+			</div>
+		</h:panelGroup>
+		
+			<br />
+	
+	<form jsf:id="form">
+		<fieldset>
+			<legend>Parâmetros da Pesquisa</legend>
+			<label for="situacao">Situação</label><br />	
+			<<select jsf:value="#{relatorioSituacoesBean.situacao}" id="situacao" size="0">
+				<f:selectItems value="#{dataBean.situacoes}"></f:selectItems>
+			</select>			
+		</fieldset>
+		
+		<br />
+		
+		<input type="submit" value="Gerar Relatório" jsf:action="#{relatorioSituacoesBean.gerarRelatorio}" />
+	
+	<table>
+		<tr>
+		<td>ID</td>
+		<td>Nome</td>
+		<td>Situação</td>
+		<td>Celular</td>
+		<td>Fixo</td>
+		<td>Ações</td>		
+		</tr>
+		
+		<tr>
+			<td>1</td>
+			<td>André</td>
+			<td>Ativo</td>
+			<td>41 1234-5678</td>
+			<td>41 1234-5678</td>
+			<td>
+				<input type="button" value="Editar" />
+			</td>
+		</tr>
+						
+	</table>
+	</form>
+	</ui:define>
+</ui:composition>
+</html>
