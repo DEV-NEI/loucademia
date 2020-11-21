@@ -23,37 +23,40 @@
 		<fieldset>
 			<legend>Parâmetros da Pesquisa</legend>
 			<label for="situacao">Situação</label><br />	
-			<<select jsf:value="#{relatorioSituacoesBean.situacao}" id="situacao" size="0">
-				<f:selectItems value="#{dataBean.situacoes}"></f:selectItems>
+			<select jsf:value="#{relatorioSituacoesBean.situacao}" id="situacao" size="0">
+				<f:selectItems value="#{dataBean.situacoes}" />
 			</select>			
 		</fieldset>
 		
 		<br />
 		
 		<input type="submit" value="Gerar Relatório" jsf:action="#{relatorioSituacoesBean.gerarRelatorio}" />
-	
+			
+	<h:panelGroup rendered="#{not empty relatorioSituacoesBean.alunos}">
 	<table>
 		<tr>
-		<td>ID</td>
+		<td>Matricula</td>
 		<td>Nome</td>
 		<td>Situação</td>
 		<td>Celular</td>
 		<td>Fixo</td>
 		<td>Ações</td>		
 		</tr>
+		<ui:repeat var="a" value="#{relatorioSituacoesBean.alunos}">
 		
-		<tr>
-			<td>1</td>
-			<td>André</td>
-			<td>Ativo</td>
-			<td>41 1234-5678</td>
-			<td>41 1234-5678</td>
-			<td>
-				<input type="button" value="Editar" />
-			</td>
-		</tr>
-						
+			<tr>
+				<td>#{a.matricula}</td>
+				<td>#{a.nome}</td>
+				<td>#{a.situacao}</td>
+				<td>#{dataBean.formatTelefone(a.telefone.dddCelular, a.telefone.numeroCelular)}</td>
+				<td>#{dataBean.formatTelefone(a.telefone.dddFixo, a.telefone.numeroFixo)}</td>
+				<td>
+					<input type="button" value="Editar" jsf:outcome="dadosAluno?matricula=#{a.matricula}" />
+				</td>
+			</tr>
+		</ui:repeat>
 	</table>
+	</h:panelGroup>
 	</form>
 	</ui:define>
 </ui:composition>
