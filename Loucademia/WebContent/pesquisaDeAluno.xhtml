@@ -7,21 +7,11 @@
 	xmlns:jsf="http://xmlns.jcp.org/jsf" lang="pt-br">
 
 <ui:composition template="Layout.xhtml">
+<ui:param name="title" value="Pesquisa de aluno" />
 	<ui:define name="conteudo">
 		<f:metadata>
 			<f:viewAction action="#{pesquisaAlunoBean.check}" />		
-		</f:metadata>
-
-		<h1>Pesquisa de Aluno</h1>
-
-		<h:panelGroup rendered="#{!facesContext.messageList.isEmpty()}">
-			<div id="infoMessage">
-				<h:messages />
-			</div>
-		</h:panelGroup>
-
-		<br />
-
+		</f:metadata>	
 		<form jsf:id="form">
 			<fieldset>
 				<legend>Parâmetros da Pesquisa</legend>
