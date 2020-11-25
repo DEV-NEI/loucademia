@@ -8,7 +8,7 @@
   4) Relatórios de entradas e saídas 
   5) relatórios de situacoes(ativo, inativo e pendente).
  
-   Nesse projeto loucademia forma utilizados:
+   Nesse projeto loucademia foram utilizados:
   HTML5+CSS+JS
   MySQL Workbench
   Eclipse
