@@ -10,8 +10,9 @@
  
    Nesse projeto loucademia foram utilizados:
   HTML5+CSS+JS
+  Java Developers EE
   MySQL Workbench
-  Eclipse
+  Eclipse JEE
   WildFly 21
   ========================================================
  
