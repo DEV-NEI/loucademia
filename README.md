@@ -9,6 +9,7 @@
   5) relatórios de situacoes(ativo, inativo e pendente).
  
    Nesse projeto loucademia foram utilizados:
+   
   HTML5+CSS+JS
   Java Web com JSF, PrimeFaces e JPA
   MySQL Workbench
