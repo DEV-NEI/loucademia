@@ -13,7 +13,7 @@
   HTML+CSS+JS,
   Java Web com JSF, PrimeFaces e JPA,
   MySQL Workbench,
-  Eclipse JEE e
+  Eclipse JEE(integrado com JDK-15) e
   WildFly 21
   
   ========================================================
