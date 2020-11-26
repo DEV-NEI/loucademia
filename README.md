@@ -1,7 +1,7 @@
 # loucademia
  Mão no Código: Sistema da Loucademia.
  ==========================================================
-  Sistema de alunos com opções de:
+  Sistema de alunos loucademia com as opções de:
   1) registro de novos alunos, 
   2) Pesquisa de alunos,
   3) Controle de acesso
@@ -10,8 +10,8 @@
  
    Nesse projeto loucademia foram utilizados:
    
-  HTML5+CSS+JS,
-  Java Web com JSF, PrimeFaces e JPA
+  HTML+CSS+JS,
+  Java Web com JSF, PrimeFaces e JPA,
   MySQL Workbench,
   Eclipse JEE e
   WildFly 21
