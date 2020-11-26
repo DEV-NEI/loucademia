@@ -10,10 +10,10 @@
  
    Nesse projeto loucademia foram utilizados:
    
-  HTML5+CSS+JS
+  HTML5+CSS+JS,
   Java Web com JSF, PrimeFaces e JPA
-  MySQL Workbench
-  Eclipse JEE
+  MySQL Workbench,
+  Eclipse JEE e
   WildFly 21
   
   ========================================================
