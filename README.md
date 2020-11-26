@@ -8,7 +8,7 @@
   4) Relatórios de entradas e saídas 
   5) relatórios de situacoes(ativo, inativo e pendente).
  
-   Nesse projeto loucademia foram utilizados:
+   Ambiente de Desenvolvimento:
    
   HTML+CSS+JS,
   Java Web com JSF, PrimeFaces e JPA,
