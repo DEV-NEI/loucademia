@@ -8,7 +8,7 @@ ___
   4) Relatórios de entradas e saídas 
   5) relatórios de situacoes(ativo, inativo e pendente).
  
-## Tecnologias utilizadas:
+## Tecnologias utilizadas
    1. HTML5
    2. CSS3
    3. javaScript
@@ -18,6 +18,6 @@ ___
    7. WildFly 21
 
 ___
-
+## Curso
   Aula realizado na Softblue projeto Loucademia.
    
