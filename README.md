@@ -8,8 +8,8 @@ ___
    4. Java Web com JSF, PrimeFaces e JPA
    5. MySQL Workbench
    6. Eclipse JEE(integrado com JDK-15)
-   7. WildFly 21
-   8. 
+   7. WildFly 21   8. 
+
 ## Sobre
    Sistema de alunos loucademia com as opções de:
   1) registro de novos alunos, 
