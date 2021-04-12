@@ -20,5 +20,5 @@ ___
 
 ___
 ## Curso
-  Aula realizado na Softblue projeto Loucademia.
+  Bootcamp realizado na Softblue projeto Loucademia.
    
